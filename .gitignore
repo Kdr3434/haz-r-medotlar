@@ -1,52 +1,64 @@
-# Prerequisites
-*.d
+using System;
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+namespace hazir_metotlar_string
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string degisken = "Dersimiz CSharp, Hoşgeldiniz!";
+            string degisken2 = " cSharp,";
+            //Length;
+            System.Console.WriteLine(degisken.Length);
 
-# Linker output
-*.ilk
-*.map
-*.exp
+            //Toupper, ToLower
+            System.Console.WriteLine(degisken.ToUpper());
+            System.Console.WriteLine(degisken.ToLower());
 
-# Precompiled Headers
-*.gch
-*.pch
+            //Concat
+            System.Console.WriteLine(String.Concat(degisken," Merhaba!"));
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+            //Compare, CompareTo
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+            System.Console.WriteLine(degisken.CompareTo(degisken2)); // 1,0,-1
+            System.Console.WriteLine(String.Compare(degisken,degisken2,true));
+            System.Console.WriteLine(String.Compare(degisken,degisken2,false));
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+            //Contains
+            System.Console.WriteLine(degisken.Contains(degisken2));
+            System.Console.WriteLine(degisken.EndsWith("Hoşgeldiniz!"));
+            System.Console.WriteLine(degisken.StartsWith("Merhaba!"));
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+            //IndexOf
+            System.Console.WriteLine(degisken.IndexOf("CS"));
+            System.Console.WriteLine(degisken.IndexOf("Berkan"));
+            System.Console.WriteLine(degisken.LastIndexOf("i"));
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+            // Insert
+            System.Console.WriteLine(degisken.Insert(0, "Merhaba! "));
+
+            // PadLeft, PadRight;
+            System.Console.WriteLine(degisken + degisken2.PadLeft(30));
+            System.Console.WriteLine(degisken + degisken2.PadLeft(30,'*'));
+            System.Console.WriteLine(degisken.PadRight(50) + degisken2);
+            System.Console.WriteLine(degisken.PadRight(50,'-') + degisken2);
+            
+            //Remove
+            //10 indexde dahil 10dan büyük büütün indexleri siler
+            System.Console.WriteLine(degisken.Remove(10));
+            System.Console.WriteLine(degisken.Remove(5,3));
+            System.Console.WriteLine(degisken.Remove(0,1));
+            
+            //Replace
+            System.Console.WriteLine(degisken.Replace("CSharp","C#"));
+            System.Console.WriteLine(degisken.Replace(" ","*"));
+
+            //Split
+            System.Console.WriteLine(degisken.Split(' ')[1]);
+
+            //Substring
+            System.Console.WriteLine(degisken.Substring(4));
+            System.Console.WriteLine(degisken.Substring(4,6));
+        }
+    }
+}
